@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "SaYUfkrEX0lUWIwR2PSqlCU6uou9KDznNWs+lAcNSWA=",
+  "Source": "CVGeneratorApp.Api",
+  "BasePath": "_content/CVGeneratorApp.Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
