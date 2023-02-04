@@ -34,7 +34,7 @@ namespace CVGeneratorApp.Api.StorageServices.Concrete
             {
                 await file.CopyToAsync(stream);
             }
-            return (rooting, fileNewName);
+            return (rooting, fileNewName); 
         }
     }
 }
