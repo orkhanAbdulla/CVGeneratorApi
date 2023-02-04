@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using CVGeneratorApp.Api.Common.Dtos.PersonDtos;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CVGeneratorApp.Api.Controllers
@@ -8,8 +9,12 @@ namespace CVGeneratorApp.Api.Controllers
     public class PersonsController : ControllerBase
     {
         [HttpPost("[action]")]
-        public async Task<IActionResult> Create()
+        public async Task<IActionResult> Create([FromForm]PersonPostDto personPostDto)
         {
+            if (true)
+            {
+
+            }
             return Ok();
         }
     }

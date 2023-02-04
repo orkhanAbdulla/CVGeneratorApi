@@ -1,11 +1,19 @@
 {
   "Version": 1,
-  "Hash": "SaYUfkrEX0lUWIwR2PSqlCU6uou9KDznNWs+lAcNSWA=",
+  "Hash": "dfJriIl8M3U8kE0ZgBbrb3JtDOILilv9aBB0EoFCegM=",
   "Source": "CVGeneratorApp.Api",
   "BasePath": "_content/CVGeneratorApp.Api",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "CVGeneratorApp.Api\\wwwroot",
+      "Source": "CVGeneratorApp.Api",
+      "ContentRoot": "C:\\Users\\hp\\Desktop\\CVGeneratorApp\\Api\\wwwroot\\",
+      "BasePath": "_content/CVGeneratorApp.Api",
+      "Pattern": "**"
+    }
+  ],
   "Assets": []
 }

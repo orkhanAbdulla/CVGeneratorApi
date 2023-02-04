@@ -1,7 +1,6 @@
 using CVGeneratorApp.Api;
 
 var builder = WebApplication.CreateBuilder(args);
-
 // Project Service Configuration
 builder.Services.AddConfigurationServices(builder.Configuration);
 
@@ -17,7 +16,7 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
-
+app.UseStaticFiles();
 app.MapControllers();
 
 app.Run();
