@@ -1,4 +1,5 @@
-﻿using CVGeneratorApp.Api.StorageServices.Abstractions;
+﻿using CVGeneratorApp.Api.Common.Enums;
+using CVGeneratorApp.Api.StorageServices.Abstractions;
 using CVGeneratorApp.Api.StorageServices.Abstractions.Base;
 
 namespace CVGeneratorApp.Api.StorageServices.Concrete
@@ -18,10 +19,13 @@ namespace CVGeneratorApp.Api.StorageServices.Concrete
         public string FileRename(string FileName)
             =>_storage.FileRename(FileName);
 
-        public bool IsValidSize(long fileSize, int maxKb)
-            =>IsValidSize(fileSize, maxKb);
+        public bool CheckFileType(IFormFile file)
+            => _storage.CheckFileType(file);
 
-        public Task<(string path, string fileName)> UploadAsync(string pathOrContainerName, IFormFile file)
-            =>UploadAsync(pathOrContainerName, file);
+        public bool IsValidSize(long fileSize, int maxKb)
+            => _storage.IsValidSize(fileSize, maxKb);
+
+        public Task<(string path, string fileName)> UploadAsync(string pathOrContainerName,IFormFile file)
+            => _storage.UploadAsync(pathOrContainerName,file);
     }
 }

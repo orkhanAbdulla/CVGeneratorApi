@@ -1,4 +1,4 @@
-﻿namespace CVGeneratorApp.Api.Core.Entities
+﻿ namespace CVGeneratorApp.Api.Core.Entities
 {
     public class Person
     {

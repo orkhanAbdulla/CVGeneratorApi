@@ -9,7 +9,7 @@ namespace CVGeneratorApp.Api.StorageServices.Concrete
     {
         private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public LocalStorage(IWebHostEnvironment webHostEnvironment)
+        public LocalStorage(IWebHostEnvironment webHostEnvironment, IHttpContextAccessor httpContextAccessor)
         {
             _webHostEnvironment = webHostEnvironment;
         }
@@ -23,7 +23,7 @@ namespace CVGeneratorApp.Api.StorageServices.Concrete
             }
         }
 
-        public async Task<(string path, string fileName)> UploadAsync(string pathOrContainerName, IFormFile file)
+        public async Task<(string path, string fileName)> UploadAsync(string pathOrContainerName,IFormFile file)
         {
             string uploadPath = Path.Combine(_webHostEnvironment.WebRootPath, pathOrContainerName);
             if (!Directory.Exists(uploadPath))

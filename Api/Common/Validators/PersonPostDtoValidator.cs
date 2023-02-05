@@ -10,7 +10,7 @@ namespace CVGeneratorApp.Api.Common.Dtos.Validators
             RuleFor(x => x.Name).NotEmpty().NotNull().MaximumLength(256);
             RuleFor(x=>x.Surname).MaximumLength(256);
             RuleFor(x => x.Email).NotNull().NotEmpty().EmailAddress();
-            RuleFor(x => x.MobilePhone).Null().NotEmpty().MaximumLength(50);
+            RuleFor(x => x.MobilePhone).NotNull().NotEmpty().MaximumLength(50);
             RuleFor(x => x.CVFile).NotNull().NotEmpty();
         }
     }

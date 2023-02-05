@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "dfJriIl8M3U8kE0ZgBbrb3JtDOILilv9aBB0EoFCegM=",
+  "Hash": "cUnTvtOwKiyxla4kRhYU0qpNSVxATAjjEDoBvZ3v8mc=",
   "Source": "CVGeneratorApp.Api",
   "BasePath": "_content/CVGeneratorApp.Api",
   "Mode": "Default",
@@ -15,5 +15,57 @@
       "Pattern": "**"
     }
   ],
-  "Assets": []
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\hp\\Desktop\\CVGeneratorApp\\Api\\wwwroot\\CVs\\1133637700Orkhan Abdullayev CV.pdf",
+      "SourceId": "CVGeneratorApp.Api",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\hp\\Desktop\\CVGeneratorApp\\Api\\wwwroot\\",
+      "BasePath": "_content/CVGeneratorApp.Api",
+      "RelativePath": "CVs/1133637700Orkhan Abdullayev CV.pdf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\CVs\\1133637700Orkhan Abdullayev CV.pdf"
+    },
+    {
+      "Identity": "C:\\Users\\hp\\Desktop\\CVGeneratorApp\\Api\\wwwroot\\CVs\\1278719535Orkhan Abdullayev CV.pdf",
+      "SourceId": "CVGeneratorApp.Api",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\hp\\Desktop\\CVGeneratorApp\\Api\\wwwroot\\",
+      "BasePath": "_content/CVGeneratorApp.Api",
+      "RelativePath": "CVs/1278719535Orkhan Abdullayev CV.pdf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\CVs\\1278719535Orkhan Abdullayev CV.pdf"
+    },
+    {
+      "Identity": "C:\\Users\\hp\\Desktop\\CVGeneratorApp\\Api\\wwwroot\\CVs\\1793990745Orkhan Abdullayev CV.pdf",
+      "SourceId": "CVGeneratorApp.Api",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\hp\\Desktop\\CVGeneratorApp\\Api\\wwwroot\\",
+      "BasePath": "_content/CVGeneratorApp.Api",
+      "RelativePath": "CVs/1793990745Orkhan Abdullayev CV.pdf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\CVs\\1793990745Orkhan Abdullayev CV.pdf"
+    }
+  ]
 }

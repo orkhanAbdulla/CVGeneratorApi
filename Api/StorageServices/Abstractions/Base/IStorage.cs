@@ -1,4 +1,6 @@
-﻿namespace CVGeneratorApp.Api.StorageServices.Abstractions.Base
+﻿using CVGeneratorApp.Api.Common.Enums;
+
+namespace CVGeneratorApp.Api.StorageServices.Abstractions.Base
 {
     public interface IStorage
     {
@@ -6,5 +8,6 @@
         void DeleteAsync(string pathOrContainerName, string fileName);
         public string FileRename(string FileName);
         public bool IsValidSize(long fileSize, int maxKb);
+        public bool CheckFileType(IFormFile file);
     }
 }
