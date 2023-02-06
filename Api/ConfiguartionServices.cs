@@ -1,6 +1,7 @@
 ﻿using CVGeneratorApp.Api.Common.Dtos.Validators;
 using CVGeneratorApp.Api.Data;
 using CVGeneratorApp.Api.Entities;
+using CVGeneratorApp.Api.Filters;
 using CVGeneratorApp.Api.HelperServices.Abstractions;
 using CVGeneratorApp.Api.HelperServices.Concrete;
 using CVGeneratorApp.Api.IdentityServices.Abstractions;
@@ -29,7 +30,7 @@ namespace CVGeneratorApp.Api
     {
         public static IServiceCollection AddConfigurationServices(this IServiceCollection serviceCollection, IConfiguration configuration)
         {
-            serviceCollection.AddControllers();
+            serviceCollection.AddControllers(options => options.Filters.Add<ApiExceptionFilterAttribute>());
             serviceCollection.AddFluentValidationAutoValidation().AddFluentValidationClientsideAdapters();
             serviceCollection.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
             serviceCollection.AddAutoMapper(Assembly.GetExecutingAssembly());

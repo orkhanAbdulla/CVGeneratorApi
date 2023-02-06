@@ -1,10 +1,12 @@
 ﻿using AutoMapper;
 using CVGeneratorApp.Api.Common.Dtos.PersonDtos;
+using CVGeneratorApp.Api.Common.Exceptions;
 using CVGeneratorApp.Api.Core.Entities;
 using CVGeneratorApp.Api.Data;
 using CVGeneratorApp.Api.Services.Abstactions;
 using CVGeneratorApp.Api.StorageServices.Abstractions;
 using Microsoft.EntityFrameworkCore;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace CVGeneratorApp.Api.Services.Concrete
 {
@@ -23,9 +25,10 @@ namespace CVGeneratorApp.Api.Services.Concrete
 
         public async Task<string> CreateAsync(PersonPostDto personPostDto)
         {
-            if (!_context.Sectors.Any(x => x.Id == personPostDto.SectorId)) throw new Exception("Not Found");
+            var isExistSector = _context.Sectors.Any(x => x.Id == personPostDto.SectorId);
+            if (!isExistSector) throw new NotFoundException(nameof(Sector), personPostDto.SectorId);
             bool checkType = _storageService.CheckFileType(personPostDto.CVFile);
-            if (!checkType) throw new Exception("The file must be in PDF format only");//todo FileFormatException
+            if (!checkType)throw new FileFormatException("The file must be in PDF format only");
             var result=await _storageService.UploadAsync("CVs",personPostDto.CVFile);
             Person person = _mapper.Map<Person>(personPostDto);
             person.CVFileName=result.fileName;

@@ -1,6 +1,7 @@
 using CVGeneratorApp.Api;
 using CVGeneratorApp.Api.Data;
 using CVGeneratorApp.Api.StorageServices.Concrete;
+using Microsoft.AspNetCore.Diagnostics;
 
 var builder = WebApplication.CreateBuilder(args);
 // Project Service Configuration
@@ -24,9 +25,8 @@ if (app.Environment.IsDevelopment())
         await initialiser.SeedAsync();
     }
 }
-
+app.UseMiddleware<CVGeneratorApp.Api.Common.Middleware.ExceptionHandlerMiddleware>();
 app.UseHttpsRedirection();
-
 app.UseAuthentication();
 app.UseAuthorization();
 app.UseStaticFiles();

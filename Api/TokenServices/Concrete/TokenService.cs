@@ -30,7 +30,7 @@ namespace CVGeneratorApp.Api.TokenServices.Concrete
                 new Claim(ClaimTypes.UserData, user.UserName),
                 new Claim(ClaimTypes.Email, user.Email)
             };
-            SymmetricSecurityKey securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Token:SecurityKey"]));
+            SymmetricSecurityKey securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Tokenn:SecurityKey"]));
             SigningCredentials signingCredentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
 
             JwtSecurityToken jwtSecurityToken = new JwtSecurityToken(
