@@ -1,4 +1,6 @@
 ﻿using CVGeneratorApp.Api.Core.Entities;
+using CVGeneratorApp.Api.Entities;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 namespace CVGeneratorApp.Api.Data
@@ -7,11 +9,15 @@ namespace CVGeneratorApp.Api.Data
     {
         private readonly ApplicationDbContext _context;
         private readonly ILogger<ApplicationDbContextInitialiser> _logger;
+        private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly UserManager<ApplicationUser> _userManager;
 
-        public ApplicationDbContextInitialiser(ApplicationDbContext context, ILogger<ApplicationDbContextInitialiser> logger)
+        public ApplicationDbContextInitialiser(ApplicationDbContext context, ILogger<ApplicationDbContextInitialiser> logger, RoleManager<IdentityRole> roleManager, UserManager<ApplicationUser> userManager)
         {
             _context = context;
             _logger = logger;
+            _roleManager = roleManager;
+            _userManager = userManager;
         }
         public async Task InitialiseAsync()
         {
@@ -42,6 +48,20 @@ namespace CVGeneratorApp.Api.Data
         }
         public async Task TrySeedAsync()
         {
+            // Default Roles
+            var administratorRole = new IdentityRole("administrator");
+            if (_roleManager.Roles.All(r => r.Name != administratorRole.Name))
+            {
+                await _roleManager.CreateAsync(administratorRole);
+            }
+            // Default Users
+
+            var administrator = new ApplicationUser { UserName = "HRCodeAcademy", Email = "administrator@localhost.com"};
+            if (_userManager.Users.All(u => u.UserName != administrator.UserName))
+            {
+                await _userManager.CreateAsync(administrator, "HRCodeAcademy123");
+                await _userManager.AddToRolesAsync(administrator, new[] { administratorRole.Name });
+            }
             // Default data Sector
             // Seed, if necessary
             if (!_context.Sectors.Any())

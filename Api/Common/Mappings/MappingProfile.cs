@@ -9,6 +9,7 @@ namespace CVGeneratorApp.Api.Common.Mappings
         public MappingProfile()
         {
             CreateMap<PersonPostDto, Person>();
+            CreateMap<Person,PersonsGetDto>().ForMember(dest=>dest.SectorName,opt=>opt.MapFrom(src=>src.Sector.Name));
         }
     }
 }

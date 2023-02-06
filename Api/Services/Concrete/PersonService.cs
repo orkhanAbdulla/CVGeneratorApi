@@ -4,6 +4,7 @@ using CVGeneratorApp.Api.Core.Entities;
 using CVGeneratorApp.Api.Data;
 using CVGeneratorApp.Api.Services.Abstactions;
 using CVGeneratorApp.Api.StorageServices.Abstractions;
+using Microsoft.EntityFrameworkCore;
 
 namespace CVGeneratorApp.Api.Services.Concrete
 {
@@ -33,6 +34,11 @@ namespace CVGeneratorApp.Api.Services.Concrete
             await _context.Persons.AddAsync(person);
             await _context.SaveChangesAsync();
             return result.path;
+        }
+
+        public async Task<IEnumerable<PersonsGetDto>> GetAllAsync()
+        {
+          return _mapper.Map<IEnumerable<PersonsGetDto>>(await _context.Persons.Include(x => x.Sector).OrderByDescending(x=>x.Created).ToListAsync());
         }
     }
 }

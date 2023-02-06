@@ -21,5 +21,10 @@ namespace CVGeneratorApp.Api.Controllers
         {
             return Ok(await _personService.CreateAsync(personPostDto));
         }
+        [HttpGet("[action]")]
+        public async Task<IActionResult> GetAll()
+        {
+            return Ok(await _personService.GetAllAsync());
+        }
     }
 }

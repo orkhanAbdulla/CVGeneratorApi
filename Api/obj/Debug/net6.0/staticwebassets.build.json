@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "cUnTvtOwKiyxla4kRhYU0qpNSVxATAjjEDoBvZ3v8mc=",
+  "Hash": "tdi8ifRLONCM7RgVuZMLlOssGssDzhMQ7wjJ0K4q//Q=",
   "Source": "CVGeneratorApp.Api",
   "BasePath": "_content/CVGeneratorApp.Api",
   "Mode": "Default",
@@ -66,6 +66,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\CVs\\1793990745Orkhan Abdullayev CV.pdf"
+    },
+    {
+      "Identity": "C:\\Users\\hp\\Desktop\\CVGeneratorApp\\Api\\wwwroot\\CVs\\99572577Orkhan Abdullayev CV.pdf",
+      "SourceId": "CVGeneratorApp.Api",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\hp\\Desktop\\CVGeneratorApp\\Api\\wwwroot\\",
+      "BasePath": "_content/CVGeneratorApp.Api",
+      "RelativePath": "CVs/99572577Orkhan Abdullayev CV.pdf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\CVs\\99572577Orkhan Abdullayev CV.pdf"
     }
   ]
 }
