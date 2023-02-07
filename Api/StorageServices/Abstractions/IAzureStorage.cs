@@ -2,7 +2,7 @@
 
 namespace CVGeneratorApp.Api.StorageServices.Abstractions
 {
-    public interface ILocalStorage:IStorage
+    public interface IAzureStorage:IStorage
     {
     }
 }

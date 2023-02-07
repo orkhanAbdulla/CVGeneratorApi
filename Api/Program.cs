@@ -14,7 +14,7 @@ builder.Host.UseSerilog((hostingContext, loggerConfiguration) =>
 
 // Project Service Configuration
 
-builder.Services.AddStorage<LocalStorage>();
+builder.Services.AddStorage<AzureStorage>();
 builder.Services.AddConfigurationServices(builder.Configuration);
 
 

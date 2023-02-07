@@ -17,7 +17,7 @@ namespace CVGeneratorApp.Api.Controllers
         }
 
         [HttpPost("[action]")]
-        public async Task<IActionResult> Login([FromBody] UserLoginDto userLoginDto)
+        public async Task<IActionResult> Login([FromForm] UserLoginDto userLoginDto)
         {
             return Ok(await _authService.LoginAsync(userLoginDto));
         }
