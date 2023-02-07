@@ -54,6 +54,7 @@ namespace CVGeneratorApp.Api
             serviceCollection.AddScoped<IStorageService, StorageService>();
             serviceCollection.AddScoped<ITokenService, TokenService>();
             serviceCollection.AddScoped<IPersonService, PersonService>();
+            serviceCollection.AddScoped<ISectorService, SectorService>();
 
             // JWT Token Configuration
             serviceCollection.AddAuthentication(opt =>
