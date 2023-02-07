@@ -2,8 +2,16 @@ using CVGeneratorApp.Api;
 using CVGeneratorApp.Api.Data;
 using CVGeneratorApp.Api.StorageServices.Concrete;
 using Microsoft.AspNetCore.Diagnostics;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// Configyre Serilog to Project
+builder.Host.UseSerilog((hostingContext, loggerConfiguration) =>
+{
+    loggerConfiguration.ReadFrom.Configuration(hostingContext.Configuration);
+});
+
 // Project Service Configuration
 
 builder.Services.AddStorage<LocalStorage>();

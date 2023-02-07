@@ -7,7 +7,9 @@ namespace CVGeneratorApp.Api.Filters
     public class ApiExceptionFilterAttribute : ExceptionFilterAttribute
     {
         private readonly IDictionary<Type, Action<ExceptionContext>> _exceptionHandlers;
-        public ApiExceptionFilterAttribute()
+        private readonly ILogger<ApiExceptionFilterAttribute> _logger;
+
+        public ApiExceptionFilterAttribute(ILogger<ApiExceptionFilterAttribute> logger)
         {
             _exceptionHandlers = new Dictionary<Type, Action<ExceptionContext>>()
             {
@@ -18,6 +20,7 @@ namespace CVGeneratorApp.Api.Filters
                 {typeof(FileFormatException),HandleFileFormatException},
 
             };
+            _logger = logger;
         }
         public override void OnException(ExceptionContext context)
         {
@@ -30,6 +33,7 @@ namespace CVGeneratorApp.Api.Filters
             if (_exceptionHandlers.ContainsKey(type))
             {
                 _exceptionHandlers[type].Invoke(context);
+                _logger.LogError($"{context.Exception.Message}");
                 return;
             }
         }
