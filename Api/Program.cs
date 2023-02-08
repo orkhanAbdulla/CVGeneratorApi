@@ -15,6 +15,7 @@ builder.Host.UseSerilog((hostingContext, loggerConfiguration) =>
 // Project Service Configuration
 
 builder.Services.AddStorage<AzureStorage>();
+builder.Services.AddCors();
 builder.Services.AddConfigurationServices(builder.Configuration);
 
 
@@ -33,6 +34,11 @@ if (app.Environment.IsDevelopment())
         await initialiser.SeedAsync();
     }
 }
+app.UseCors(x => x
+.AllowAnyMethod()
+.AllowAnyHeader()
+.SetIsOriginAllowed(origin => true) // allow any origin
+.AllowCredentials()); // allow credentials
 app.UseMiddleware<CVGeneratorApp.Api.Common.Middleware.ExceptionHandlerMiddleware>();
 app.UseHttpsRedirection();
 app.UseAuthentication();

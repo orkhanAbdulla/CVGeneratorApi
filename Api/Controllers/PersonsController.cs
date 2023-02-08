@@ -17,11 +17,11 @@ namespace CVGeneratorApp.Api.Controllers
         }
 
         [HttpPost("[action]")]
-        public async Task<IActionResult> Create([FromForm]PersonPostDto personPostDto)
+        public async Task<IActionResult> Create([FromBody]PersonPostDto personPostDto)
         {
             return Ok(await _personService.CreateAsync(personPostDto));
         }
-        [HttpGet("[action]")]
+        [HttpGet("")]
         public async Task<IActionResult> GetAll()
         {
             return Ok(await _personService.GetAllAsync());

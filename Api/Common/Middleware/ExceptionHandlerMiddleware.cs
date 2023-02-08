@@ -31,7 +31,7 @@ namespace CVGeneratorApp.Api.Common.Middleware
             await context.Response.WriteAsync(new ErrorDetails()
             {
                 StatusCode = context.Response.StatusCode,
-                Message = "Internal Server Error"
+                Message = $"Internal Server Error:{exception.Message}"
             }.ToString());
         }
     }

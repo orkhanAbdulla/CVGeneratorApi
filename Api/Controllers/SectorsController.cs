@@ -6,16 +6,16 @@ namespace CVGeneratorApp.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class SectorController : ControllerBase
+    public class SectorsController : ControllerBase
     {
         private readonly ISectorService _sectorService;
 
-        public SectorController(ISectorService sectorService)
+        public SectorsController(ISectorService sectorService)
         {
             _sectorService = sectorService;
         }
 
-        [HttpGet("[action]")]
+        [HttpGet("")]
         public async Task<IActionResult> GetAll()
         {
             return Ok(await _sectorService.GetAllAsync());
