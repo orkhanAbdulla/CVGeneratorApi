@@ -1,6 +1,9 @@
-﻿namespace CVGeneratorApp.Api.Common.Dtos.PersonDtos
+﻿using CVGeneratorApp.Api.Common.Mappings;
+using CVGeneratorApp.Api.Core.Entities;
+
+namespace CVGeneratorApp.Api.Common.Dtos.PersonDtos
 {
-    public class PersonsGetDto
+    public class PersonsGetDto:IMapFrom<Person>
     {
         public int Id { get; set; }
         public string Name { get; set; } = null!;

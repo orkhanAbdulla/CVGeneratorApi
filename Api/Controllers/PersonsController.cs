@@ -1,5 +1,6 @@
 ﻿using CVGeneratorApp.Api.Common.Dtos.PersonDtos;
 using CVGeneratorApp.Api.Services.Abstactions;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -21,10 +22,16 @@ namespace CVGeneratorApp.Api.Controllers
         {
             return Ok(await _personService.CreateAsync(personPostDto));
         }
-        [HttpGet("")]
+        [HttpGet("[action]")]
+        [Authorize]
         public async Task<IActionResult> GetAll()
         {
             return Ok(await _personService.GetAllAsync());
+        }
+        [HttpGet("")]
+        public async Task<IActionResult> GetAll([FromQuery] PersonsGetFilteredDto personsGetFilteredDto)
+        {
+            return Ok(await _personService.GetAllAsync(personsGetFilteredDto));
         }
     }
 }
