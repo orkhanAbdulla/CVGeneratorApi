@@ -14,7 +14,7 @@ namespace CVGeneratorApp.Api.StorageServices.Concrete
             _webHostEnvironment = webHostEnvironment;
         }
 
-        public void DeleteAsync(string pathOrContainerName, string fileName)
+        public void Delete(string pathOrContainerName, string fileName)
         {
             string DeleteFile = Path.Combine(_webHostEnvironment.WebRootPath, pathOrContainerName, fileName);
             if (File.Exists(DeleteFile))

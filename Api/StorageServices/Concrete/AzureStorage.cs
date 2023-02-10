@@ -17,9 +17,9 @@ namespace CVGeneratorApp.Api.StorageServices.Concrete
             _blobServiceClient = new(configuration["Storage:Azure"]);
             AzureStorageUrl = configuration["AzureStorageUrl"];
         }
-        public void DeleteAsync(string pathOrContainerName, string fileName)
+        public void Delete(string pathOrContainerName, string fileName)
         {
-            _containerClient = _blobServiceClient.GetBlobContainerClient(pathOrContainerName);
+            _containerClient = _blobServiceClient.GetBlobContainerClient(pathOrContainerName.ToLower());
             if (_containerClient.GetBlobs().Any(b => b.Name == fileName))
             {
                 BlobClient blobClient = _containerClient.GetBlobClient(fileName);

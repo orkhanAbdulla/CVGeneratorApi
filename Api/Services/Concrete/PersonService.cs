@@ -43,6 +43,15 @@ namespace CVGeneratorApp.Api.Services.Concrete
             return result.path;
         }
 
+        public async Task DeleteAsync(int Id)
+        {
+            var entity = await _context.Persons.FindAsync(Id);
+            if (entity == null) throw new NotFoundException(nameof(Person), Id);
+            _storageService.Delete("CVs", entity.CVFileName);
+            _context.Persons.Remove(entity);
+            await _context.SaveChangesAsync();
+        }
+
         public async Task<IEnumerable<PersonsGetDto>> GetAllAsync()
         {
           return _mapper.Map<IEnumerable<PersonsGetDto>>(await _context.Persons.Include(x => x.Sector).OrderByDescending(x=>x.Created).ToListAsync());

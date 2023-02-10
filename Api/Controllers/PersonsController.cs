@@ -18,17 +18,22 @@ namespace CVGeneratorApp.Api.Controllers
         }
 
         [HttpPost("[action]")]
-        public async Task<IActionResult> Create([FromBody]PersonPostDto personPostDto)
+        public async Task<IActionResult> Create([FromForm]PersonPostDto personPostDto)
         {
             return Ok(await _personService.CreateAsync(personPostDto));
         }
-        [HttpGet("[action]")]
-        [Authorize]
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            await _personService.DeleteAsync(id);
+            return Ok();
+        }
+        [HttpGet("")]
         public async Task<IActionResult> GetAll()
         {
             return Ok(await _personService.GetAllAsync());
         }
-        [HttpGet("")]
+        [HttpGet("[action]")]
         public async Task<IActionResult> GetAll([FromQuery] PersonsGetFilteredDto personsGetFilteredDto)
         {
             return Ok(await _personService.GetAllAsync(personsGetFilteredDto));

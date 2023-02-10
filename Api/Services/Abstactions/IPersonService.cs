@@ -8,5 +8,6 @@ namespace CVGeneratorApp.Api.Services.Abstactions
         public Task<string> CreateAsync(PersonPostDto personPostDto);
         public Task<IEnumerable<PersonsGetDto>> GetAllAsync();
         public Task<PaginatedList<PersonsGetDto>> GetAllAsync(PersonsGetFilteredDto personsGetFilteredDto);
+        public Task DeleteAsync(int Id);
     }
 }

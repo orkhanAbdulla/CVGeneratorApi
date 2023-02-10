@@ -13,8 +13,8 @@ namespace CVGeneratorApp.Api.StorageServices.Concrete
             _storage = storage;
         }
 
-        public void DeleteAsync(string pathOrContainerName, string fileName)
-            => _storage.DeleteAsync(pathOrContainerName, fileName);
+        public void Delete(string pathOrContainerName, string fileName)
+            => _storage.Delete(pathOrContainerName, fileName);
 
         public string FileRename(string FileName)
             =>_storage.FileRename(FileName);
