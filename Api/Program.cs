@@ -6,6 +6,8 @@ using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddHttpContextAccessor();
+
 // Configyre Serilog to Project
 builder.Host.UseSerilog((hostingContext, loggerConfiguration) =>
 {
@@ -14,7 +16,7 @@ builder.Host.UseSerilog((hostingContext, loggerConfiguration) =>
 
 // Project Service Configuration
 
-builder.Services.AddStorage<AzureStorage>();
+builder.Services.AddStorage<LocalStorage>();
 builder.Services.AddCors();
 builder.Services.AddConfigurationServices(builder.Configuration);
 
@@ -34,6 +36,7 @@ if (app.Environment.IsDevelopment())
         await initialiser.SeedAsync();
     }
 }
+app.UseStaticFiles();
 app.UseCors(x => x
 .AllowAnyMethod()
 .AllowAnyHeader()
@@ -43,7 +46,7 @@ app.UseMiddleware<CVGeneratorApp.Api.Common.Middleware.ExceptionHandlerMiddlewar
 app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
-app.UseStaticFiles();
+
 app.MapControllers();
 
 app.Run();

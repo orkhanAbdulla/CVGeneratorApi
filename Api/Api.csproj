@@ -27,8 +27,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="HelperServices\Abstractions\" />
+    <Folder Include="HelperServices\Concrete\" />
     <Folder Include="wwwroot\" />
-    <Folder Include="wwwroot\CVs\" />
   </ItemGroup>
 
 </Project>

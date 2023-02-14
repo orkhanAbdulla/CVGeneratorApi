@@ -1,18 +1,22 @@
 ﻿using CVGeneratorApp.Api.StorageServices.Abstractions;
 using CVGeneratorApp.Api.StorageServices.Abstractions.Base;
 using CVGeneratorApp.Api.StorageServices.Concrete.Base;
-using System.IO;
+
 
 namespace CVGeneratorApp.Api.StorageServices.Concrete
 {
     public class LocalStorage : Storage, ILocalStorage
     {
+        private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public LocalStorage(IWebHostEnvironment webHostEnvironment, IHttpContextAccessor httpContextAccessor)
+        public LocalStorage(IHttpContextAccessor httpContextAccessor, IWebHostEnvironment webHostEnvironment)
         {
+            _httpContextAccessor = httpContextAccessor;
             _webHostEnvironment = webHostEnvironment;
         }
+
+        public string BaseUrl => $"{_httpContextAccessor.HttpContext?.Request.Scheme}://{_httpContextAccessor.HttpContext?.Request.Host}{_httpContextAccessor.HttpContext?.Request.PathBase}";
 
         public void Delete(string pathOrContainerName, string fileName)
         {
@@ -22,7 +26,6 @@ namespace CVGeneratorApp.Api.StorageServices.Concrete
                 File.Delete(DeleteFile);
             }
         }
-
         public async Task<(string path, string fileName)> UploadAsync(string pathOrContainerName,IFormFile file)
         {
             string uploadPath = Path.Combine(_webHostEnvironment.WebRootPath, pathOrContainerName);
@@ -34,7 +37,8 @@ namespace CVGeneratorApp.Api.StorageServices.Concrete
             {
                 await file.CopyToAsync(stream);
             }
-            return (rooting, fileNewName); 
+            string fileAdress = Path.Combine(BaseUrl, pathOrContainerName, fileNewName);
+            return (fileAdress, fileNewName); 
         }
     }
 }

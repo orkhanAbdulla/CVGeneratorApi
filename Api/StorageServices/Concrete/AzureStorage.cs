@@ -11,7 +11,6 @@ namespace CVGeneratorApp.Api.StorageServices.Concrete
         private readonly BlobServiceClient _blobServiceClient;
         private BlobContainerClient _containerClient;
         readonly string AzureStorageUrl;
-
         public AzureStorage(IConfiguration configuration)
         {
             _blobServiceClient = new(configuration["Storage:Azure"]);

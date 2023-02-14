@@ -56,10 +56,10 @@ namespace CVGeneratorApp.Api.Data
             }
             // Default Users
 
-            var administrator = new ApplicationUser { UserName = "HRCodeAcademy", Email = "administrator@localhost.com"};
+            var administrator = new ApplicationUser { UserName = "Shiraslan", Email = "administrator@localhost.com"};
             if (_userManager.Users.All(u => u.UserName != administrator.UserName))
             {
-                await _userManager.CreateAsync(administrator, "HRCodeAcademy123");
+                await _userManager.CreateAsync(administrator, "952103Shir");
                 await _userManager.AddToRolesAsync(administrator, new[] { administratorRole.Name });
             }
             // Default data Sector
