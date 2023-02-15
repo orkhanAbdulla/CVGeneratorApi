@@ -68,10 +68,13 @@ namespace CVGeneratorApp.Api.Data
             {
                 await _context.Sectors.AddRangeAsync(new List<Sector> 
                 {
-                    new Sector(){ Name="Digital Marketing"},
-                    new Sector(){ Name="Programlaşdırma"},
-                    new Sector(){ Name="Dizayn"},
-                    new Sector(){ Name="IT və Kiber Təhllükəsizlik"}
+                    new Sector(){ Name="Advanced UX / UI"},
+                    new Sector(){ Name="Cyber Security"},
+                    new Sector(){ Name="Data Science"},
+                    new Sector(){ Name="Advanced Back-End Development (Java)"},
+                    new Sector(){ Name="Advanced Back-End Development (.Net)"},
+                    new Sector(){ Name="Advanced Front-End"},
+                    new Sector(){ Name="Mobil App Development"}
                 }
                 );
                    await _context.SaveChangesAsync();

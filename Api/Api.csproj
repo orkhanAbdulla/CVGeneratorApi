@@ -6,6 +6,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <AssemblyName>CVGeneratorApp.Api</AssemblyName>
     <RootNamespace>CVGeneratorApp.Api</RootNamespace>
+    <UserSecretsId>73f47277-2833-40fc-8d34-6ac90305d596</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
   </PropertyGroup>
 
   <ItemGroup>
@@ -21,6 +23,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.17.0" />
     <PackageReference Include="Serilog.AspNetCore" Version="6.1.0" />
     <PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
