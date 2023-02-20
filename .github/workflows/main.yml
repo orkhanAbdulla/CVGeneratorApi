@@ -46,7 +46,7 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: .
-          file: ./cicdtest/Dockerfile
+          file: ./CVGeneratorApi/Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/cvgeneratorapi:latest
   #job3
