@@ -61,6 +61,7 @@ jobs:
         host: ${{ secrets.SSH_HOST }}
         username: ${{ secrets.SSH_USER }}
         key: ${{ secrets.SSH_KEY }}
+        port: ${{ secrets.SSH_PORT }}
         script: |
                     docker rm -f cvgeneratorapi 2>/dev/null
                     docker rmi ${{ secrets.DOCKER_USERNAME }}/cvgeneratorapi:latest
