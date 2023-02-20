@@ -3,8 +3,6 @@ name: ci
 on:
   push:
     branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
 
 jobs:
 #job 1
@@ -66,4 +64,4 @@ jobs:
                     docker rm -f cvgeneratorapi 2>/dev/null
                     docker rmi ${{ secrets.DOCKER_USERNAME }}/cvgeneratorapi:latest
                     docker pull ${{ secrets.DOCKER_USERNAME }}/cvgeneratorapi:latest 
-                    docker run -d --name cvgeneratorapi --restart always --network cvgenerator --ip 172.22.0.10 ${{ secrets.DOCKER_USERNAME }}/cvgeneratorapi
+                    docker run -d -p 8091:80 -p 8092:443 --name cvgeneratorapi --restart always ${{ secrets.DOCKER_USERNAME }}/cvgeneratorapi
