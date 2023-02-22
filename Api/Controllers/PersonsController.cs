@@ -29,6 +29,7 @@ namespace CVGeneratorApp.Api.Controllers
             return Ok();
         }
         [HttpGet("")]
+        [Authorize]
         public async Task<IActionResult> GetAll()
         {
             return Ok(await _personService.GetAllAsync());

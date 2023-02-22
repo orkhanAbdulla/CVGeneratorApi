@@ -11,6 +11,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="HelperServices\**" />
+    <Content Remove="HelperServices\**" />
+    <EmbeddedResource Remove="HelperServices\**" />
+    <None Remove="HelperServices\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="AutoMapper" Version="12.0.1" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0" />
     <PackageReference Include="Azure.Storage.Blobs" Version="12.14.1" />
@@ -30,8 +37,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="HelperServices\Abstractions\" />
-    <Folder Include="HelperServices\Concrete\" />
     <Folder Include="wwwroot\" />
   </ItemGroup>
 
